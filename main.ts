@@ -29,30 +29,30 @@ browserEvents.onWheel(function (dx, dy, dz) {
         if (zoom < 1.5) {
             zoom += 0.5
         } else {
-        	
+
         }
     } else if (dy > 0) {
         if (zoom > 0.5) {
             zoom += -0.5
         } else {
-        	
+
         }
     }
 })
 spriteutils.onSpriteKindUpdateInterval(SpriteKind.enemyrifleperson, 500, function (sprite) {
     transformSprites.rotateSprite(sprite, spriteutils.radiansToDegrees(spriteutils.angleFrom(sprite, person)))
     if (spriteutils.distanceBetween(sprite, person) > 175) {
-    	
+
     } else {
         sprite.setVelocity(0, 0)
         sprite.unfollow()
     }
     if (sprite.vx == 0 && sprite.vy == 0) {
         if (sight.isInSight(
-        sprite,
-        person,
-        220,
-        false
+            sprite,
+            person,
+            220,
+            false
         )) {
             if (sprites.readDataNumber(sprite, "bulletsLeft") > 0 && sprites.readDataBoolean(sprite, "reloading") == false) {
                 enemyrifleprojectile = sprites.create(img`
@@ -64,10 +64,10 @@ spriteutils.onSpriteKindUpdateInterval(SpriteKind.enemyrifleperson, 500, functio
                     `, SpriteKind.enemyriflebullet)
                 scene.cameraShake(2, 200)
                 spriteutils.placeAngleFrom(
-                enemyrifleprojectile,
-                spriteutils.angleFrom(sprite, person),
-                25,
-                sprite
+                    enemyrifleprojectile,
+                    spriteutils.angleFrom(sprite, person),
+                    25,
+                    sprite
                 )
                 spriteutils.setVelocityAtAngle(enemyrifleprojectile, spriteutils.angleFrom(sprite, person), 500)
                 transformSprites.rotateSprite(enemyrifleprojectile, spriteutils.radiansToDegrees(spriteutils.angleFrom(sprite, person)))
@@ -91,10 +91,10 @@ spriteutils.onSpriteKindUpdateInterval(SpriteKind.enemyrifleperson, 500, functio
                     . . . . . . . . . . . . . . . . 
                     `, SpriteKind.nothin)
                 spriteutils.placeAngleFrom(
-                explosiongsprite,
-                spriteutils.angleFrom(sprite, person),
-                14,
-                sprite
+                    explosiongsprite,
+                    spriteutils.angleFrom(sprite, person),
+                    14,
+                    sprite
                 )
                 extraEffects.createSpreadEffectOnAnchor(explosiongsprite, extraEffects.createFullPresetsSpreadEffectData(ExtraEffectPresetColor.Fire, ExtraEffectPresetShape.Explosion), 100, 20, 5)
                 if (Math.percentChance(10)) {
@@ -106,7 +106,7 @@ spriteutils.onSpriteKindUpdateInterval(SpriteKind.enemyrifleperson, 500, functio
             }
         }
     } else {
-    	
+
     }
     if (sprites.readDataNumber(sprite, "bulletsLeft") == 0 && sprites.readDataBoolean(sprite, "reloading") == false) {
         sprites.setDataBoolean(sprite, "reloading", true)
@@ -142,7 +142,7 @@ browserEvents.R.onEvent(browserEvents.KeyEvent.Pressed, function () {
                         })
                     }
                 } else {
-                	
+
                 }
             } else if (toolbar.get_number(ToolbarNumberAttribute.SelectedIndex) == 1) {
                 if (!(pistolmag_ammo == 18)) {
@@ -158,11 +158,11 @@ browserEvents.R.onEvent(browserEvents.KeyEvent.Pressed, function () {
                     }
                 }
             } else {
-            	
+
             }
         }
     } else {
-    	
+
     }
 })
 browserEvents.onMouseMove(function (x, y) {
@@ -726,10 +726,10 @@ forever(function () {
                                     . . . . . 
                                     `, SpriteKind.rifleprojectile)
                                 spriteutils.placeAngleFrom(
-                                rifleprojectile2,
-                                spriteutils.angleFrom(akpic, mouse),
-                                14,
-                                akpic
+                                    rifleprojectile2,
+                                    spriteutils.angleFrom(akpic, mouse),
+                                    14,
+                                    akpic
                                 )
                                 transformSprites.rotateSprite(rifleprojectile2, spriteutils.radiansToDegrees(spriteutils.angleFrom(akpic, mouse)) + randint(-3.5, 3.5))
                                 spriteutils.setVelocityAtAngle(rifleprojectile2, spriteutils.angleFrom(akpic, mouse) + spriteutils.degreesToRadians(randint(-3.5, 3.5)), 300)
@@ -742,10 +742,10 @@ forever(function () {
                                     . . . . . 
                                     `, SpriteKind.rifleprojectile)
                                 spriteutils.placeAngleFrom(
-                                rifleprojectile2,
-                                spriteutils.angleFrom(akpic, mouse),
-                                14,
-                                akpic
+                                    rifleprojectile2,
+                                    spriteutils.angleFrom(akpic, mouse),
+                                    14,
+                                    akpic
                                 )
                                 transformSprites.rotateSprite(rifleprojectile2, spriteutils.radiansToDegrees(spriteutils.angleFrom(akpic, mouse)) + randint(-1, 1))
                                 spriteutils.setVelocityAtAngle(rifleprojectile2, spriteutils.angleFrom(akpic, mouse) + spriteutils.degreesToRadians(randint(-1, 1)), 300)
@@ -771,10 +771,10 @@ forever(function () {
                                 . . . . . . . . . . . . . . . . 
                                 `, SpriteKind.nothin)
                             spriteutils.placeAngleFrom(
-                            explosiongsprite,
-                            spriteutils.angleFrom(akpic, mouse),
-                            14,
-                            akpic
+                                explosiongsprite,
+                                spriteutils.angleFrom(akpic, mouse),
+                                14,
+                                akpic
                             )
                             extraEffects.createSpreadEffectOnAnchor(explosiongsprite, extraEffects.createFullPresetsSpreadEffectData(ExtraEffectPresetColor.Fire, ExtraEffectPresetShape.Explosion), 100, 20, 5)
                             riflemag_ammo += -1
@@ -784,7 +784,7 @@ forever(function () {
                             })
                         }
                     } else {
-                    	
+
                     }
                 } else if (toolbar.get_number(ToolbarNumberAttribute.SelectedIndex) == 1) {
                     if (pistolcanshoot) {
@@ -798,10 +798,10 @@ forever(function () {
                                     . . . . . 
                                     `, SpriteKind.pistolprojectile)
                                 spriteutils.placeAngleFrom(
-                                pistolprojectile2,
-                                spriteutils.angleFrom(gsh18pic, mouse),
-                                14,
-                                gsh18pic
+                                    pistolprojectile2,
+                                    spriteutils.angleFrom(gsh18pic, mouse),
+                                    14,
+                                    gsh18pic
                                 )
                                 transformSprites.rotateSprite(pistolprojectile2, spriteutils.radiansToDegrees(spriteutils.angleFrom(gsh18pic, mouse)) + randint(-3.5, 3.5))
                                 spriteutils.setVelocityAtAngle(pistolprojectile2, spriteutils.angleFrom(gsh18pic, mouse) + spriteutils.degreesToRadians(randint(-3.5, 3.5)), 300)
@@ -814,10 +814,10 @@ forever(function () {
                                     . . . . . 
                                     `, SpriteKind.pistolprojectile)
                                 spriteutils.placeAngleFrom(
-                                pistolprojectile2,
-                                spriteutils.angleFrom(gsh18pic, mouse),
-                                14,
-                                gsh18pic
+                                    pistolprojectile2,
+                                    spriteutils.angleFrom(gsh18pic, mouse),
+                                    14,
+                                    gsh18pic
                                 )
                                 transformSprites.rotateSprite(pistolprojectile2, spriteutils.radiansToDegrees(spriteutils.angleFrom(gsh18pic, mouse)) + randint(-1, 1))
                                 spriteutils.setVelocityAtAngle(pistolprojectile2, spriteutils.angleFrom(gsh18pic, mouse) + spriteutils.degreesToRadians(randint(-1, 1)), 300)
@@ -843,10 +843,10 @@ forever(function () {
                                 . . . . . . . . . . . . . . . . 
                                 `, SpriteKind.nothin)
                             spriteutils.placeAngleFrom(
-                            explosiongsprite,
-                            spriteutils.angleFrom(gsh18pic, mouse),
-                            14,
-                            gsh18pic
+                                explosiongsprite,
+                                spriteutils.angleFrom(gsh18pic, mouse),
+                                14,
+                                gsh18pic
                             )
                             extraEffects.createSpreadEffectOnAnchor(explosiongsprite, extraEffects.createFullPresetsSpreadEffectData(ExtraEffectPresetColor.Fire, ExtraEffectPresetShape.Explosion), 100, 20, 5)
                             pistolmag_ammo += -1
@@ -880,10 +880,10 @@ forever(function () {
                                     `, SpriteKind.grenade)
                                 grenad.setBounceOnWall(true)
                                 spriteutils.placeAngleFrom(
-                                grenad,
-                                spriteutils.angleFrom(f1pic, mouse),
-                                14,
-                                f1pic
+                                    grenad,
+                                    spriteutils.angleFrom(f1pic, mouse),
+                                    14,
+                                    f1pic
                                 )
                                 spriteutils.setVelocityAtAngle(grenad, spriteutils.angleFrom(f1pic, mouse) + spriteutils.degreesToRadians(randint(-5, 5)), 80)
                                 grenad.fx = 50
@@ -912,10 +912,10 @@ forever(function () {
                                             . . . . . . . . . . . . . . . . 
                                             `, SpriteKind.nothin)
                                         spriteutils.placeAngleFrom(
-                                        explosiongsprite,
-                                        0,
-                                        0,
-                                        grenad
+                                            explosiongsprite,
+                                            0,
+                                            0,
+                                            grenad
                                         )
                                         extraEffects.createSpreadEffectOnAnchor(explosiongsprite, extraEffects.createFullPresetsSpreadEffectData(ExtraEffectPresetColor.Fire, ExtraEffectPresetShape.Explosion), 1000, 90, 50)
                                         for (let index = 0; index < 50; index++) {
@@ -938,10 +938,10 @@ forever(function () {
                                                 . . . . . . . . . . . . . . . . 
                                                 `, SpriteKind.shrap)
                                             spriteutils.placeAngleFrom(
-                                            shrapnel,
-                                            0,
-                                            0,
-                                            grenad
+                                                shrapnel,
+                                                0,
+                                                0,
+                                                grenad
                                             )
                                             spriteutils.setVelocityAtAngle(shrapnel, randint(0, 360), 100)
                                             shrapnel.fx = 40
@@ -959,7 +959,7 @@ forever(function () {
                                     })
                                 })
                             } else {
-                            	
+
                             }
                         }
                     } else if (ask == "rockets") {
@@ -983,10 +983,10 @@ forever(function () {
                                     `, SpriteKind.rocketprojectile)
                                 transformSprites.rotateSprite(rocket, spriteutils.radiansToDegrees(spriteutils.angleFrom(gsh18pic, mouse)))
                                 spriteutils.placeAngleFrom(
-                                rocket,
-                                spriteutils.angleFrom(rocketlauncherpic, mouse),
-                                14,
-                                rocketlauncherpic
+                                    rocket,
+                                    spriteutils.angleFrom(rocketlauncherpic, mouse),
+                                    14,
+                                    rocketlauncherpic
                                 )
                                 spriteutils.setVelocityAtAngle(rocket, spriteutils.angleFrom(f1pic, mouse) + spriteutils.degreesToRadians(randint(-1, 1)), 130)
                                 rockets += -1
@@ -997,7 +997,7 @@ forever(function () {
                         }
                     }
                 } else {
-                	
+
                 }
             }
         }
