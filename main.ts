@@ -288,6 +288,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.medpack, function (sprite, other
 browserEvents.F.onEvent(browserEvents.KeyEvent.Pressed, function () {
     for (let value22222 of sprites.allOfKind(SpriteKind.machine_gun)) {
         if (spriteutils.distanceBetween(person, value22222) <= 10) {
+
             if (sprites.readDataBoolean(person, "usingMg") == true) {
                 sprites.setDataBoolean(person, "usingMg", false)
             } else {
@@ -777,6 +778,7 @@ for (let value of tiles.getTilesByType(assets.tile`myTile`)) {
     sprites.setDataBoolean(enemyrifleguy, "reloading", false)
 }
 for (let value2222 of tiles.getTilesByType(assets.tile`myTile3`)) {
+
     tiles.setTileAt(value2222, assets.tile`myTile0`)
     machinegun = sprites.create(img`
         ..........................................................................................
@@ -869,6 +871,7 @@ for (let value2222 of tiles.getTilesByType(assets.tile`myTile3`)) {
         ..........................................................................................
         ..........................................................................................
         ..........................................................................................
+  
         `, SpriteKind.machine_gun)
     tiles.placeOnTile(machinegun, value2222)
     sprites.setDataNumber(machinegun, "bullets", 200)
